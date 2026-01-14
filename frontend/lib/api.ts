@@ -57,79 +57,106 @@ export const dashboardApi = {
   },
 }
 
-// Inventory API
-export const inventoryApi = {
-  getMaterials: async () => {
+// Feeds API (Materials/Inventory)
+export const feedsApi = {
+  getFeeds: async () => {
     await delay(500)
     return [
-      { id: 1, name: "ذرة صفراء", quantity: 5000, unit: "كغ", minStock: 1000, price: 2500 },
-      { id: 2, name: "صويا", quantity: 3200, unit: "كغ", minStock: 800, price: 4500 },
-      { id: 3, name: "نخالة قمح", quantity: 450, unit: "كغ", minStock: 500, price: 1800 },
-      { id: 4, name: "شعير", quantity: 2800, unit: "كغ", minStock: 600, price: 2200 },
-      { id: 5, name: "فيتامينات", quantity: 120, unit: "كغ", minStock: 50, price: 15000 },
+      { id: 1, name: "ذرة صفراء", quantity: 5000, unit: "كغ", minStock: 1000 },
+      { id: 2, name: "صويا", quantity: 3200, unit: "كغ", minStock: 800 },
+      { id: 3, name: "نخالة قمح", quantity: 450, unit: "كغ", minStock: 500 },
+      { id: 4, name: "شعير", quantity: 2800, unit: "كغ", minStock: 600 },
+      { id: 5, name: "فيتامينات", quantity: 120, unit: "كغ", minStock: 50 },
     ]
   },
-  addMaterial: async (material: { name: string; quantity: number; unit: string; minStock: number; price: number }) => {
+  addFeed: async (feed: { name: string; quantity: number; unit: string; minStock: number }) => {
     await delay(400)
-    return { id: Date.now(), ...material }
+    return { id: Date.now(), ...feed }
   },
-  updateMaterial: async (
+  updateFeed: async (
     id: number,
-    material: Partial<{ name: string; quantity: number; unit: string; minStock: number; price: number }>,
+    feed: Partial<{ name: string; quantity: number; unit: string; minStock: number }>,
   ) => {
     await delay(400)
-    return { id, ...material }
+    return { id, ...feed }
   },
-  deleteMaterial: async (id: number) => {
+  deleteFeed: async (id: number) => {
     await delay(300)
     return { success: true, id }
   },
+  // Prices included here or separate API, sticking to separate for clarity but could be nested
+  getFeedPrices: async (feedId: number) => {
+    await delay(300)
+    // Mock returning 4 prices
+    return [
+      { price_type: "retail", currency: "SYP", price_per_kg: 2500 },
+      { price_type: "wholesale", currency: "SYP", price_per_kg: 2400 },
+      { price_type: "retail", currency: "USD", price_per_kg: 0.20 },
+      { price_type: "wholesale", currency: "USD", price_per_kg: 0.18 },
+    ]
+  },
+  updateFeedPrices: async (feedId: number, prices: any[]) => {
+    await delay(400)
+    return { success: true }
+  }
+}
+
+// Retain inventoryApi alias for backward compatibility for now, pointing to feedsApi
+export const inventoryApi = {
+  getMaterials: feedsApi.getFeeds,
+  // ... we will phase this out in pages
 }
 
 // Production API
-export const productionApi = {
-  getOperations: async () => {
+// Purchases API (formerly Production)
+export const purchasesApi = {
+  getPurchases: async () => {
     await delay(500)
     return [
       {
         id: 1,
-        date: "2024-01-15",
-        product: "علف دواجن",
-        quantity: 500,
-        materials: [
-          { name: "ذرة صفراء", quantity: 300 },
-          { name: "صويا", quantity: 150 },
-        ],
+        feed_id: 1,
+        feed_name: "ذرة صفراء", // Joined for frontend convenience
+        quantity_kg: 5000,
+        price_per_kg: 2500,
+        currency: "SYP",
+        created_at: "2024-01-15T10:00:00",
       },
       {
         id: 2,
-        date: "2024-01-14",
-        product: "علف أبقار",
-        quantity: 800,
-        materials: [
-          { name: "شعير", quantity: 500 },
-          { name: "نخالة قمح", quantity: 200 },
-        ],
+        feed_id: 2,
+        feed_name: "صويا",
+        quantity_kg: 3200,
+        price_per_kg: 4500,
+        currency: "SYP",
+        created_at: "2024-01-14T14:30:00",
       },
       {
         id: 3,
-        date: "2024-01-13",
-        product: "علف أغنام",
-        quantity: 350,
-        materials: [
-          { name: "ذرة صفراء", quantity: 200 },
-          { name: "شعير", quantity: 100 },
-        ],
+        feed_id: 4,
+        feed_name: "شعير",
+        quantity_kg: 1000,
+        price_per_kg: 2200,
+        currency: "SYP",
+        created_at: "2024-01-13T09:15:00",
       },
     ]
   },
-  addOperation: async (operation: {
-    product: string
-    quantity: number
-    materials: { name: string; quantity: number }[]
+  addPurchase: async (purchase: {
+    feed_id: number
+    quantity_kg: number
+    price_per_kg: number
+    currency: string
   }) => {
     await delay(400)
-    return { id: Date.now(), date: new Date().toISOString().split("T")[0], ...operation }
+    // In a real app, we would fetch the feed name based on feed_id
+    // For mock, we'll just return what's needed or assume integration updates list
+    return {
+      id: Date.now(),
+      created_at: new Date().toISOString(),
+      feed_name: "مادة جديدة", // Mock placeholder
+      ...purchase,
+    }
   },
 }
 
@@ -233,18 +260,18 @@ export const customersApi = {
   getCustomers: async () => {
     await delay(500)
     return [
-      { id: 1, name: "محمد أحمد", phone: "0912345678", address: "دمشق - المزة" },
-      { id: 2, name: "علي حسن", phone: "0923456789", address: "حلب - العزيزية" },
-      { id: 3, name: "خالد سعيد", phone: "0934567890", address: "حمص - الوعر" },
-      { id: 4, name: "عمر يوسف", phone: "0945678901", address: "اللاذقية - الزراعة" },
-      { id: 5, name: "سامي محمود", phone: "0956789012", address: "طرطوس - الكورنيش" },
+      { id: 1, name: "محمد أحمد", phone: "0912345678" },
+      { id: 2, name: "علي حسن", phone: "0923456789" },
+      { id: 3, name: "خالد سعيد", phone: "0934567890" },
+      { id: 4, name: "عمر يوسف", phone: "0945678901" },
+      { id: 5, name: "سامي محمود", phone: "0956789012" },
     ]
   },
-  addCustomer: async (customer: { name: string; phone: string; address: string }) => {
+  addCustomer: async (customer: { name: string; phone: string }) => {
     await delay(400)
     return { id: Date.now(), ...customer }
   },
-  updateCustomer: async (id: number, customer: Partial<{ name: string; phone: string; address: string }>) => {
+  updateCustomer: async (id: number, customer: Partial<{ name: string; phone: string }>) => {
     await delay(400)
     return { id, ...customer }
   },

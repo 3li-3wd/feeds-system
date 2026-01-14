@@ -14,14 +14,17 @@ import {
   LogOut,
   Menu,
   X,
+  Layers,
+  ShoppingCart,
 } from "lucide-react"
 import { useAuth } from "@/context/auth-context"
 import { useSettings } from "@/context/settings-context"
 
 const menuItems = [
   { href: "/dashboard", label: "لوحة التحكم", icon: LayoutDashboard },
+  { href: "/dashboard/materials", label: "المواد", icon: Layers },
   { href: "/dashboard/inventory", label: "المخزون", icon: Package },
-  { href: "/dashboard/production", label: "الإنتاج", icon: Factory },
+  { href: "/dashboard/purchases", label: "المشتريات", icon: ShoppingCart }, // Was Production
   { href: "/dashboard/invoices", label: "الفواتير", icon: FileText },
   { href: "/dashboard/debts", label: "الديون", icon: CreditCard },
   { href: "/dashboard/customers", label: "الزبائن", icon: Users },
@@ -47,9 +50,8 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 right-0 z-50 h-full w-64 bg-card shadow-xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
-          isOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"
-        }`}
+        className={`fixed top-0 right-0 z-50 h-full w-64 bg-card shadow-xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"
+          }`}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
@@ -77,9 +79,8 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${
-                        isActive ? "bg-primary text-primary-foreground shadow-md" : "text-foreground hover:bg-muted"
-                      }`}
+                      className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${isActive ? "bg-primary text-primary-foreground shadow-md" : "text-foreground hover:bg-muted"
+                        }`}
                     >
                       <item.icon className="h-5 w-5" />
                       {item.label}

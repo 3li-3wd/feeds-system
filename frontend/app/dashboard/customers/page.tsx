@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import { Plus, Pencil, Trash2, Users, Phone, MapPin } from "lucide-react"
+import { Plus, Pencil, Trash2, Users, Phone } from "lucide-react"
 import { DashboardLayout } from "@/components/layout/dashboard-layout"
 import { DataTable } from "@/components/ui/data-table"
 import { Modal } from "@/components/ui/modal"
@@ -18,7 +18,6 @@ interface Customer {
   id: number
   name: string
   phone: string
-  address: string
 }
 
 export default function CustomersPage() {
@@ -31,7 +30,6 @@ export default function CustomersPage() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    address: "",
   })
 
   const { showToast } = useToast()
@@ -51,7 +49,7 @@ export default function CustomersPage() {
 
   const openAddModal = () => {
     setEditingCustomer(null)
-    setFormData({ name: "", phone: "", address: "" })
+    setFormData({ name: "", phone: "" })
     setIsModalOpen(true)
   }
 
@@ -60,7 +58,6 @@ export default function CustomersPage() {
     setFormData({
       name: customer.name,
       phone: customer.phone,
-      address: customer.address,
     })
     setIsModalOpen(true)
   }
@@ -122,16 +119,6 @@ export default function CustomersPage() {
         <div className="flex items-center gap-2">
           <Phone className="h-4 w-4 text-muted-foreground" />
           <span dir="ltr">{item.phone}</span>
-        </div>
-      ),
-    },
-    {
-      key: "address",
-      header: "العنوان",
-      render: (item: Customer) => (
-        <div className="flex items-center gap-2">
-          <MapPin className="h-4 w-4 text-muted-foreground" />
-          <span className="truncate max-w-xs">{item.address}</span>
         </div>
       ),
     },
@@ -231,16 +218,6 @@ export default function CustomersPage() {
               placeholder="09XXXXXXXX"
               dir="ltr"
               className="text-right"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="address">العنوان</Label>
-            <Input
-              id="address"
-              value={formData.address}
-              onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-              placeholder="المدينة - الحي"
             />
           </div>
 
