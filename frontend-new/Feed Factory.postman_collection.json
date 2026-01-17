@@ -1,0 +1,3824 @@
+{
+	"info": {
+		"_postman_id": "b6d5268b-11ac-4e31-813f-f3e27d31f304",
+		"name": "Feed Factory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51502095",
+		"_collection_link": "https://none00-2155.postman.co/workspace/DevHub~12edf7df-4a70-4e78-9ac8-b63bd68e332a/collection/51502095-b6d5268b-11ac-4e31-813f-f3e27d31f304?action=share&source=collection_link&creator=51502095"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"username\":\"darktiger_19_19\",\r\n    \"password\":\"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/admin/login",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n    \"username\":\"darktiger_19_19\",\r\n    \"password\":\"admin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/admin/login",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"admin",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "336"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"150-OncBgvvdnidyDSyFy6C/q6JNkGw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Jan 2026 10:55:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"22222222-2222-2222-2222-222222222222\",\n        \"username\": \"darktiger_19_19\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMjIyMjIyMi0yMjIyLTIyMjItMjIyMi0yMjIyMjIyMjIyMjIiLCJ1c2VybmFtZSI6ImRhcmt0aWdlcl8xOV8xOSIsImlhdCI6MTc2ODM4ODE1MiwiZXhwIjoxNzY4MzkxNzUyfQ.n5sIHbYTkQfXuME3hd8ksyjhuKNSHY8QxLbQDCW_e9A\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/admin/logout",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"admin",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401 default fallback",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/admin/logout",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"admin",
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "13"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "51"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19-8eFyDEC9ZT4zKscTEXHeDz3aR50\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Jan 2026 11:00:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Token revoked\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Feeds",
+			"item": [
+				{
+					"name": "Create new feed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Feed C\",\r\n    \"quantity_kg\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/feeds",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feeds"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create new feed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"صويا مستوردة\",\r\n    \"quantity_kg\": 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/feeds",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feeds"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"success\": false,\n    \"message\": \"هناك خلل في إضافة المادة إلى المخزون.\",\n    \"error\": \"المادة موجودة في المحزون بالفعل.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "List feeds",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/feeds",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feeds"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List feeds",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/feeds",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feeds"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم عرض المواد الموجودة في المخزون بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"feeds\": [\n            {\n                \"id\": 1,\n                \"name\": \"صويا مستوردة\",\n                \"quantity_kg\": 20,\n                \"created_at\": \"2026-01-14 12:12:36\"\n            }\n        ],\n        \"pagination\": {\n            \"page\": 1,\n            \"limit\": 20,\n            \"total\": 1,\n            \"totalPages\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Search by quantity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/feeds/search/by-quantity?quantity=20",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feeds",
+								"search",
+								"by-quantity"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search by quantity",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/feeds/search/by-quantity?quantity=10",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feeds",
+										"search",
+										"by-quantity"
+									],
+									"query": [
+										{
+											"key": "quantity",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم عرض المواد التي تعادل كميتها المطلوب أو أكثر.\",\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"صويا مستوردة\",\n            \"quantity_kg\": 20\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Search by name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/feeds/search/by-name?name=صوص",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feeds",
+								"search",
+								"by-name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "صوص"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search by name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/feeds/search/by-name?name=صويا",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feeds",
+										"search",
+										"by-name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "صويا"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم عرض المواد المطلوبة.\",\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"صويا مستوردة\",\n            \"quantity_kg\": 20,\n            \"created_at\": \"2026-01-14 12:12:36\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Rename",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ذرة مستوردة\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/feeds/1/rename",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feeds",
+								"1",
+								"rename"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Rename",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"صويا بلدي\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/feeds/1/rename",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feeds",
+										"1",
+										"rename"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم تحديث اسم المادة بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"صويا بلدي\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Quantity ( development only )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"delta_kg\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/feeds/1/quantity",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feeds",
+								"1",
+								"quantity"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Quantity",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"delta_kg\": -10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/feeds/1/quantity",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feeds",
+										"1",
+										"quantity"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\r\n    \"message\": \"تم تحديث كمية المادة بنجاح.\",\r\n    \"success\": true,\r\n    \"data\": {\r\n        \"feed_id\": 1,\r\n        \"previous_quantity_kg\": 40,\r\n        \"delta_kg\": -10,\r\n        \"new_quantity_kg\": 30\r\n    }\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Soft delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/feeds/1",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feeds",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Soft delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/feeds/1",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feeds",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم حذف المادة بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Feeds Prices",
+			"item": [
+				{
+					"name": "Add price",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"feedId\": 2,\r\n    \"priceType\": \"wholesale\", // retail or wholesale\r\n    \"currency\": \"SYP\",\r\n    \"price\": 12900\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/feed-prices",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feed-prices"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add price",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"feedId\": 1,\r\n    \"priceType\": \"retail\",\r\n    \"currency\": \"USD\",\r\n    \"price\": 120\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/feed-prices",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feed-prices"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\r\n    \"message\": \"تم إضافة السعر إلى المادة.\",\r\n    \"success\": true,\r\n    \"data\": {\r\n        \"feed_id\": 2\r\n    }\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get prices for feed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/feed-prices/all/2",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feed-prices",
+								"all",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get prices for feed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/feed-prices/1",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feed-prices",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم عرض جميع أسعار المادة المطلوبة.\",\n    \"success\": true,\n    \"data\": {\n        \"feed\": {\n            \"id\": 1,\n            \"name\": \"صويا مستوردة\",\n            \"quantity_kg\": 20\n        },\n        \"prices\": [\n            {\n                \"price_type\": \"retail\",\n                \"currency\": \"SYP\",\n                \"price_per_kg\": 1200\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get latest price",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/feed-prices/last/:feedId?priceType=retail&currency=USD",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feed-prices",
+								"last",
+								":feedId"
+							],
+							"query": [
+								{
+									"key": "priceType",
+									"value": "retail"
+								},
+								{
+									"key": "currency",
+									"value": "USD"
+								}
+							],
+							"variable": [
+								{
+									"key": "feedId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get latest price",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/feed-prices/last/1?priceType=retail&currency=SYP",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feed-prices",
+										"last",
+										"1"
+									],
+									"query": [
+										{
+											"key": "priceType",
+											"value": "retail"
+										},
+										{
+											"key": "currency",
+											"value": "SYP"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم عرض آخر سعر للمادة المطلوبة بناءٌ على المطلوب.\",\n    \"success\": true,\n    \"data\": 1200\n}"
+						}
+					]
+				},
+				{
+					"name": "List price history",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/feed-prices/:feedId/history",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feed-prices",
+								":feedId",
+								"history"
+							],
+							"variable": [
+								{
+									"key": "feedId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List price history",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم عرض جميع البيانات المطلوبة.\",\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 4,\n            \"price_type\": \"retail\",\n            \"currency\": \"USD\",\n            \"price_per_kg\": 120,\n            \"created_at\": \"2026-01-15 07:15:19\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Filter by price type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/feed-prices/by-type?priceType=wholesale",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"feed-prices",
+								"by-type"
+							],
+							"query": [
+								{
+									"key": "priceType",
+									"value": "wholesale",
+									"description": "retail or wholesale"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/feed-prices/by-type?priceType=wholesale",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feed-prices",
+										"by-type"
+									],
+									"query": [
+										{
+											"key": "priceType",
+											"value": "wholesale",
+											"description": "retail or wholesale"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "10"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "26"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fa-NlQQpcPWo6ac0aL6wzKdGoYxeb4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 19:34:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم عرض أسعار جميع المواد حسب نوع السعر.\",\n    \"success\": true,\n    \"data\": {\n        \"feeds\": [\n            {\n                \"id\": 2,\n                \"name\": \"Feed B\",\n                \"SYP_price\": 19900,\n                \"USD_price\": 99\n            },\n            {\n                \"id\": 1,\n                \"name\": \"درة مستوردة\",\n                \"SYP_price\": 23700,\n                \"USD_price\": 257\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "success ( default price fallback use-case)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/feed-prices/by-type?priceType=retail",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feed-prices",
+										"by-type"
+									],
+									"query": [
+										{
+											"key": "priceType",
+											"value": "retail",
+											"description": "retail or wholesale"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "245"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f5-UNzeQAHpEQ6sFQ87ncmNyV6sDBg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 19:34:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم عرض أسعار جميع المواد حسب نوع السعر.\",\n    \"success\": true,\n    \"data\": {\n        \"feeds\": [\n            {\n                \"id\": 2,\n                \"name\": \"Feed B\",\n                \"SYP_price\": 0,\n                \"USD_price\": 0\n            },\n            {\n                \"id\": 1,\n                \"name\": \"درة مستوردة\",\n                \"SYP_price\": 24700,\n                \"USD_price\": 247\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "success (default price fallback example 2)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/feed-prices/by-type?priceType=wholesale",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"feed-prices",
+										"by-type"
+									],
+									"query": [
+										{
+											"key": "priceType",
+											"value": "wholesale",
+											"description": "retail or wholesale"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "12"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "21"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "305"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"131-4WvN37T5C25OrliB+5E623pZmgY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 19:36:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم عرض أسعار جميع المواد حسب نوع السعر.\",\n    \"success\": true,\n    \"data\": {\n        \"feeds\": [\n            {\n                \"id\": 2,\n                \"name\": \"Feed B\",\n                \"SYP_price\": 19900,\n                \"USD_price\": 99\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Feed C\",\n                \"SYP_price\": 0,\n                \"USD_price\": 900\n            },\n            {\n                \"id\": 1,\n                \"name\": \"درة مستوردة\",\n                \"SYP_price\": 23700,\n                \"USD_price\": 257\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Add new customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"mario\",\r\n    \"phone_number\":\"+0923457782\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/customers",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"mario\",\r\n    \"phone_number\":\"+0923457782\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/customers",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d-OVgql3CdkLeomM+rKVuCaqnLoaU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 09:44:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تمت إضافة زبون جديد بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 4,\n        \"full_name\": \"mario\",\n        \"phone_number\": \"+0923457782\"\n    }\n}"
+						},
+						{
+							"name": "name field required",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    // \"full_name\": \"mario\",\r\n    // \"phone_number\":\"+0923457782\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/customers",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "128"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"80-rMsrmw5BUD6KO4cKvZOEaDTDv94\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:03:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"حدث خطأ أثناء إضافة الزبون.\",\n    \"error\": \"يجب إدخال اسم الزبون.\"\n}"
+						},
+						{
+							"name": "success with no phone number added",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"weqrqewr3\"\r\n    // \"phone_number\":\"+0923457782\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/customers",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "13"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "18"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "136"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"88-P9ZI+rmioNBjWD8ZlEr9D3mt0eU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:03:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تمت إضافة زبون جديد بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 5,\n        \"full_name\": \"weqrqewr3\",\n        \"phone_number\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Customers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/customers?page=1&limit=10",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"customers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/customers?page=1&limit=10",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "517"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"205-5k9WC0VZ/TAM8tT7cQNZVYpgglk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:04:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم عرض الزبائن بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"customers\": [\n            {\n                \"id\": 5,\n                \"full_name\": \"weqrqewr3\",\n                \"phone_number\": null,\n                \"created_at\": \"2026-01-15 10:03:46\"\n            },\n            {\n                \"id\": 4,\n                \"full_name\": \"mario\",\n                \"phone_number\": \"+0923457782\",\n                \"created_at\": \"2026-01-15 09:44:37\"\n            },\n            {\n                \"id\": 3,\n                \"full_name\": \"maher\",\n                \"phone_number\": \"09762792730\",\n                \"created_at\": \"2026-01-15 08:43:46\"\n            },\n            {\n                \"id\": 1,\n                \"full_name\": \"other\",\n                \"phone_number\": \"09762792737\",\n                \"created_at\": \"2026-01-15 08:34:26\"\n            }\n        ],\n        \"pagination\": {\n            \"page\": 1,\n            \"limit\": 10,\n            \"total\": 4,\n            \"totalPages\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get customer by phone number",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"other\",\r\n    \"phone_number\":\"09762792737\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/customers/search/by-phone?phone=095",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"customers",
+								"search",
+								"by-phone"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "095"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success with no result",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"other\",\r\n    \"phone_number\":\"09762792737\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/customers/search/by-phone?phone=0922",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers",
+										"search",
+										"by-phone"
+									],
+									"query": [
+										{
+											"key": "phone",
+											"value": "0922"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d-t5bPHOcawfDm3BAd6SMbBNt1dJk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:07:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم عرض الزبائن حسب رقم الهاتف.\",\n    \"success\": true,\n    \"data\": []\n}"
+						},
+						{
+							"name": "success with the most relevant results",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"other\",\r\n    \"phone_number\":\"09762792737\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/customers/search/by-phone?phone=09",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers",
+										"search",
+										"by-phone"
+									],
+									"query": [
+										{
+											"key": "phone",
+											"value": "09"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "11"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "13"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "266"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10a-gTEFv0gK0ieGdLs6MXU9ZpcwUU4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:08:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم عرض الزبائن حسب رقم الهاتف.\",\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"full_name\": \"maher\",\n            \"phone_number\": \"09762792730\"\n        },\n        {\n            \"id\": 4,\n            \"full_name\": \"mario\",\n            \"phone_number\": \"+0923457782\"\n        },\n        {\n            \"id\": 1,\n            \"full_name\": \"other\",\n            \"phone_number\": \"09762792737\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get customer by customer name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"other\",\r\n    \"phone_number\":\"09762792737\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/customers/search/by-name?name=dfgh",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"customers",
+								"search",
+								"by-name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "dfgh"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"other\",\r\n    \"phone_number\":\"09762792737\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/customers/search/by-name?name=ahmad",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers",
+										"search",
+										"by-name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "ahmad"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "12"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "29"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d-ZUBFEvM4SstszK8XVzDw/W6cqr8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:43:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم عرض الزبائن المطلوبين.\",\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 5,\n            \"full_name\": \"ahmad\",\n            \"phone_number\": \"0958234936\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "success , empty",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"other\",\r\n    \"phone_number\":\"09762792737\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/customers/search/by-name?name=dfgh",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers",
+										"search",
+										"by-name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "dfgh"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-Qg/jyWR5N0R6PJbqNi5GcswSgJw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:43:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم عرض الزبائن المطلوبين.\",\n    \"success\": true,\n    \"data\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "update customer data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"full_name\":\"ahmad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/customers/5",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"customers",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"phone_number\":\"0958234936\",\r\n  \"full_name\":\"xxsw32\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/customers/3",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "12"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "31"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-pZpfKUye1iRA+O/J5uslM5MdzL0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:00:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم تحديث بيانات الزبون بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 3,\n        \"full_name\": \"xxsw32\",\n        \"phone_number\": \"0958234936\"\n    }\n}"
+						},
+						{
+							"name": "update customer data",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"full_name\":\"ahmad\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/customers/5",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "118"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"76-ScWHrZkLQPH+pYxj3J/6AGTVEkI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:39:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم تحديث بيانات الزبون بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 5,\n        \"full_name\": \"ahmad\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/customers/3",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"customers",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "customer not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/customers/2",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers",
+										"2"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "131"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"83-ElK+tcrTLodSKQXqAcmh8hSximM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:45:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"حدث خطأ أثناء حذف الزبون.\",\n    \"error\": \"لم يتم العثور على الزبون.\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/customers/3",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"customers",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "12"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "20"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-TgnBUUyZU9S54GZ8XV7fXtBCGiw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 10:45:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم حذف الزبون  بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 3\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Invoice Supplies",
+			"item": [
+				{
+					"name": "Add invoice supply",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"feed_id\": 1,\r\n    \"quantity_kg\": 500,\r\n    \"price\": 150000,\r\n    \"currency\": \"SYP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/invoice-supplies",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"invoice-supplies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add invoice supply",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/invoice-supplies",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoice-supplies"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تمت إضافة فاتورة التوريد بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"feed_id\": 1,\n        \"quantity_kg\": 500,\n        \"price\": 150000,\n        \"currency\": \"USD\",\n        \"total\": 75000000\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List invoice supplies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/invoice-supplies",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"invoice-supplies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List invoice supplies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/invoice-supplies",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoice-supplies"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"feed_id\": 1,\n            \"quantity_kg\": 500,\n            \"price_per_kg\": 150000,\n            \"currency\": \"USD\",\n            \"created_at\": \"2026-01-15 09:59:05\",\n            \"updated_at\": \"2026-01-15 09:59:05\"\n        },\n        {\n            \"id\": 2,\n            \"feed_id\": 1,\n            \"quantity_kg\": 30,\n            \"price_per_kg\": 120000,\n            \"currency\": \"SYP\",\n            \"created_at\": \"2026-01-15 09:46:35\",\n            \"updated_at\": \"2026-01-15 09:46:35\"\n        },\n        {\n            \"id\": 1,\n            \"feed_id\": 1,\n            \"quantity_kg\": 30,\n            \"price_per_kg\": 120000,\n            \"currency\": \"SYP\",\n            \"created_at\": \"2026-01-15 09:46:08\",\n            \"updated_at\": \"2026-01-15 09:46:08\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "List by feed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/invoice-supplies/feed/1",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"invoice-supplies",
+								"feed",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List by feed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/invoice-supplies/feed/1",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoice-supplies",
+										"feed",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"feed_id\": 1,\n            \"quantity_kg\": 500,\n            \"price_per_kg\": 150000,\n            \"currency\": \"USD\",\n            \"created_at\": \"2026-01-15 09:59:05\",\n            \"updated_at\": \"2026-01-15 09:59:05\"\n        },\n        {\n            \"id\": 2,\n            \"feed_id\": 1,\n            \"quantity_kg\": 30,\n            \"price_per_kg\": 120000,\n            \"currency\": \"SYP\",\n            \"created_at\": \"2026-01-15 09:46:35\",\n            \"updated_at\": \"2026-01-15 09:46:35\"\n        },\n        {\n            \"id\": 1,\n            \"feed_id\": 1,\n            \"quantity_kg\": 30,\n            \"price_per_kg\": 120000,\n            \"currency\": \"SYP\",\n            \"created_at\": \"2026-01-15 09:46:08\",\n            \"updated_at\": \"2026-01-15 09:46:08\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "List by currency",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/invoice-supplies/currency/SYP",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"invoice-supplies",
+								"currency",
+								"SYP"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List by currency",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/invoice-supplies/currency/SYP",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoice-supplies",
+										"currency",
+										"SYP"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 2,\n            \"feed_id\": 1,\n            \"quantity_kg\": 30,\n            \"price_per_kg\": 120000,\n            \"currency\": \"SYP\",\n            \"created_at\": \"2026-01-15 09:46:35\",\n            \"updated_at\": \"2026-01-15 09:46:35\"\n        },\n        {\n            \"id\": 1,\n            \"feed_id\": 1,\n            \"quantity_kg\": 30,\n            \"price_per_kg\": 120000,\n            \"currency\": \"SYP\",\n            \"created_at\": \"2026-01-15 09:46:08\",\n            \"updated_at\": \"2026-01-15 09:46:08\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "External Expenses",
+			"item": [
+				{
+					"name": "Create external expense",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"دقع أجار عامل\",\r\n    \"expense_type\": \"transport\",\r\n    // \"worker_name\": \"ريان سعيد\",\r\n    \"total\": 30000,\r\n    \"currency\": \"SYP\",\r\n    \"details\": \"Phone Number: 0932068925\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/external-expenses",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"external-expenses"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create external expense",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"دقع أجار عامل\",\r\n    \"expense_type\": \"worker_salary\",\r\n    \"worker_name\": \"ريان سعيد\",\r\n    \"total\": 20000,\r\n    \"currency\": \"SYP\",\r\n    \"details\": \"Phone Number: 0932068925\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/external-expenses",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"external-expenses"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تمت إضافة المصروف بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 1\n    }\n}"
+						},
+						{
+							"name": "Create external expense",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"دقع أجار عامل\",\r\n    \"expense_type\": \"transport\",\r\n    // \"worker_name\": \"ريان سعيد\",\r\n    \"total\": 20000,\r\n    \"currency\": \"SYP\",\r\n    \"details\": \"Phone Number: 0932068925\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/external-expenses",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"external-expenses"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تمت إضافة المصروف بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Search by title",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/external-expenses/search/title?title=أجار",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"external-expenses",
+								"search",
+								"title"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "أجار"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search by title",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/external-expenses/search/title?title=أجار",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"external-expenses",
+										"search",
+										"title"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "أجار"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"title\": \"دقع أجار عامل\",\n            \"expense_type\": \"transport\",\n            \"worker_name\": null,\n            \"total\": 30000,\n            \"currency\": \"SYP\",\n            \"details\": \"Phone Number: 0932068925\",\n            \"created_at\": \"2026-01-15 11:28:57\",\n            \"updated_at\": \"2026-01-15 11:28:57\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"دقع أجار عامل\",\n            \"expense_type\": \"transport\",\n            \"worker_name\": null,\n            \"total\": 20000,\n            \"currency\": \"SYP\",\n            \"details\": \"Phone Number: 0932068925\",\n            \"created_at\": \"2026-01-15 11:26:49\",\n            \"updated_at\": \"2026-01-15 11:26:49\"\n        },\n        {\n            \"id\": 1,\n            \"title\": \"دقع أجار عامل\",\n            \"expense_type\": \"worker_salary\",\n            \"worker_name\": \"ريان سعيد\",\n            \"total\": 20000,\n            \"currency\": \"SYP\",\n            \"details\": \"Phone Number: 0932068925\",\n            \"created_at\": \"2026-01-15 11:25:59\",\n            \"updated_at\": \"2026-01-15 11:25:59\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Filter by type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/external-expenses/filter/type/transport",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"external-expenses",
+								"filter",
+								"type",
+								"transport"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Filter by type",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/external-expenses/filter/type/transport",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"external-expenses",
+										"filter",
+										"type",
+										"transport"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"title\": \"دقع أجار عامل\",\n            \"expense_type\": \"transport\",\n            \"worker_name\": null,\n            \"total\": 30000,\n            \"currency\": \"SYP\",\n            \"details\": \"Phone Number: 0932068925\",\n            \"created_at\": \"2026-01-15 11:28:57\",\n            \"updated_at\": \"2026-01-15 11:28:57\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"دقع أجار عامل\",\n            \"expense_type\": \"transport\",\n            \"worker_name\": null,\n            \"total\": 20000,\n            \"currency\": \"SYP\",\n            \"details\": \"Phone Number: 0932068925\",\n            \"created_at\": \"2026-01-15 11:26:49\",\n            \"updated_at\": \"2026-01-15 11:26:49\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Search by worker",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/external-expenses/search/worker?name=ريان",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"external-expenses",
+								"search",
+								"worker"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ريان"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search by worker",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/external-expenses/search/worker?name=ريان",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"external-expenses",
+										"search",
+										"worker"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "ريان"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "List expenses paginated",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/external-expenses",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"external-expenses"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List expenses paginated",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/external-expenses",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"external-expenses"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"success\": true,\n    \"message\": \"تم جلب المصروفات بنجاح.\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"title\": \"دقع أجار عامل\",\n            \"expense_type\": \"transport\",\n            \"worker_name\": null,\n            \"total\": 30000,\n            \"currency\": \"SYP\",\n            \"details\": \"Phone Number: 0932068925\",\n            \"created_at\": \"2026-01-15 11:28:57\",\n            \"updated_at\": \"2026-01-15 11:28:57\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"دقع أجار عامل\",\n            \"expense_type\": \"transport\",\n            \"worker_name\": null,\n            \"total\": 20000,\n            \"currency\": \"SYP\",\n            \"details\": \"Phone Number: 0932068925\",\n            \"created_at\": \"2026-01-15 11:26:49\",\n            \"updated_at\": \"2026-01-15 11:26:49\"\n        },\n        {\n            \"id\": 1,\n            \"title\": \"دقع أجار عامل\",\n            \"expense_type\": \"worker_salary\",\n            \"worker_name\": \"ريان سعيد\",\n            \"total\": 20000,\n            \"currency\": \"SYP\",\n            \"details\": \"Phone Number: 0932068925\",\n            \"created_at\": \"2026-01-15 11:25:59\",\n            \"updated_at\": \"2026-01-15 11:25:59\"\n        }\n    ],\n    \"pagination\": {\n        \"page\": 1,\n        \"limit\": 20,\n        \"total\": 3,\n        \"totalPages\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "Create an invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customer_id\": 1,\r\n  \"invoice_lines\": [\r\n    {\r\n      \"feed_id\": 1,\r\n      \"quantity_kg\": 5,\r\n      \"price_type\": \"wholesale\",\r\n      \"currency\": \"USD\"\r\n    },\r\n    {\r\n      \"feed_id\": 1,\r\n      \"quantity_kg\": 5,\r\n      \"price_type\": \"retail\",\r\n      \"currency\": \"SYP\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/invoices",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"invoices"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\": 1,\r\n  \"invoice_lines\": [\r\n    {\r\n      \"feed_id\": 1,\r\n      \"quantity_kg\": 10,\r\n      \"price_type\": \"wholesale\",\r\n      \"currency\": \"USD\"\r\n    },\r\n    {\r\n      \"feed_id\": 3,\r\n      \"quantity_kg\": 10,\r\n      \"price_type\": \"wholesale\",\r\n      \"currency\": \"USD\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/invoices",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoices"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "12"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "44"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d-a3D3nZIN/tuv/3PgbM3NHGdD5VQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 20:13:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم إنشاء الفاتورة بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"invoice_id\": 2,\n        \"status\": \"CONFIRMED\",\n        \"totals\": {\n            \"USD\": 11570\n        }\n    }\n}"
+						},
+						{
+							"name": "success example2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\": 1,\r\n  \"invoice_lines\": [\r\n    {\r\n      \"feed_id\": 1,\r\n      \"quantity_kg\": 5,\r\n      \"price_type\": \"wholesale\",\r\n      \"currency\": \"USD\"\r\n    },\r\n    {\r\n      \"feed_id\": 1,\r\n      \"quantity_kg\": 5,\r\n      \"price_type\": \"wholesale\",\r\n      \"currency\": \"SYP\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/invoices",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoices"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "13"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "49"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"99-kQvlISO53zOzcMVf0u9rUhR9nlc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 20:29:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"message\": \"تم إنشاء الفاتورة بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"invoice_id\": 5,\n        \"status\": \"CONFIRMED\",\n        \"totals\": {\n            \"USD\": 1285,\n            \"SYP\": 118500\n        }\n    }\n}"
+						},
+						{
+							"name": "no enough supplies in the inventory",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\": 1,\r\n  \"invoice_lines\": [\r\n    {\r\n      \"feed_id\": 1,\r\n      \"quantity_kg\": 5,\r\n      \"price_type\": \"wholesale\",\r\n      \"currency\": \"USD\"\r\n    },\r\n    {\r\n      \"feed_id\": 1,\r\n      \"quantity_kg\": 5,\r\n      \"price_type\": \"wholesale\",\r\n      \"currency\": \"SYP\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/invoices",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoices"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "191"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bf-j5qO4LYjTCemrVWBFU4NxMzW7UQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 20:36:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"هناك خلل في إنشاء الفاتورة.\",\n    \"error\": \"الكمية المطلوبة من المادة 1 (10) أكبر من الكمية المتاحة (0).\"\n}"
+						}
+					]
+				},
+				{
+					"name": "List invoices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/invoices?page=1&order=ASC&limit=10",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"invoices"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "order",
+									"value": "ASC"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success (1)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/invoices?page=1&order=ASC&limit=10",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoices"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "order",
+											"value": "ASC"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "571"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23b-8x/x3uACWZkq/2uiKYf5Ickpgfc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jan 2026 20:54:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم عرض الفواتير بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"invoices\": [\n            {\n                \"id\": 1,\n                \"customer_id\": 1,\n                \"customer_name\": \"mario\",\n                \"created_at\": \"2026-01-15 20:09:31\"\n            },\n            {\n                \"id\": 2,\n                \"customer_id\": 1,\n                \"customer_name\": \"mario\",\n                \"created_at\": \"2026-01-15 20:13:47\"\n            },\n            {\n                \"id\": 3,\n                \"customer_id\": 1,\n                \"customer_name\": \"mario\",\n                \"created_at\": \"2026-01-15 20:25:44\"\n            },\n            {\n                \"id\": 4,\n                \"customer_id\": 1,\n                \"customer_name\": \"mario\",\n                \"created_at\": \"2026-01-15 20:29:06\"\n            },\n            {\n                \"id\": 5,\n                \"customer_id\": 1,\n                \"customer_name\": \"mario\",\n                \"created_at\": \"2026-01-15 20:29:57\"\n            }\n        ],\n        \"pagination\": {\n            \"page\": 1,\n            \"limit\": 10,\n            \"total\": 5,\n            \"totalPages\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}api/invoices/:id/details",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"invoices",
+								":id",
+								"details"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}api/invoices/:id/details",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoices",
+										":id",
+										"details"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"success\": true,\n    \"message\": \"تم جلب تفاصيل الفاتورة بنجاح.\",\n    \"data\": {\n        \"invoice_id\": 1,\n        \"created_at\": \"2026-01-16 10:02:16\",\n        \"customer\": {\n            \"id\": 1,\n            \"name\": \"mario\"\n        },\n        \"lines\": [\n            {\n                \"line_id\": 1,\n                \"feed_id\": 1,\n                \"feed_name\": \"ذرة مستوردة\",\n                \"quantity_kg\": 5,\n                \"price_type\": \"wholesale\",\n                \"currency\": \"USD\",\n                \"unit_price\": 240,\n                \"total\": 1200\n            },\n            {\n                \"line_id\": 2,\n                \"feed_id\": 1,\n                \"feed_name\": \"ذرة مستوردة\",\n                \"quantity_kg\": 5,\n                \"price_type\": \"wholesale\",\n                \"currency\": \"SYP\",\n                \"unit_price\": 185000,\n                \"total\": 925000\n            }\n        ],\n        \"totals\": {\n            \"USD\": 1200,\n            \"SYP\": 925000\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"invoice_lines\": [\r\n    {\r\n      \"feed_id\": 2,\r\n      \"quantity_kg\": 100,\r\n      \"price_type\": \"wholesale\",\r\n      \"currency\": \"SYP\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}api/invoices/1",
+							"host": [
+								"{{BaseUrl}}api"
+							],
+							"path": [
+								"invoices",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"invoice_lines\": [\r\n    {\r\n      \"feed_id\": 2,\r\n      \"quantity_kg\": 100,\r\n      \"price_type\": \"wholesale\",\r\n      \"currency\": \"SYP\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/invoices/1",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"invoices",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "15;w=60"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "15"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "14"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"59-zti8CBwdlMvSgDetSpLS8LFRa1w\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Jan 2026 11:16:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم تعديل الفاتورة بنجاح.\",\n    \"success\": true,\n    \"data\": {\n        \"id\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
