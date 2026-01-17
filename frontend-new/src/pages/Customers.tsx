@@ -28,7 +28,7 @@ export default function CustomersPage() {
     const [editingCustomer, setEditingCustomer] = useState<Customer | null>(null)
     const [deletingCustomer, setDeletingCustomer] = useState<Customer | null>(null)
     const [formData, setFormData] = useState({
-        name: "",
+        full_name: "",
         phone: "",
     })
 
@@ -60,14 +60,14 @@ export default function CustomersPage() {
 
     const openAddModal = () => {
         setEditingCustomer(null)
-        setFormData({ name: "", phone: "" })
+        setFormData({ full_name: "", phone: "" })
         setIsModalOpen(true)
     }
 
     const openEditModal = (customer: Customer) => {
         setEditingCustomer(customer)
         setFormData({
-            name: customer.name,
+            full_name: customer.name,
             phone: customer.phone,
         })
         setIsModalOpen(true)
@@ -81,7 +81,7 @@ export default function CustomersPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
 
-        if (!formData.name.trim()) {
+        if (!formData.full_name.trim()) {
             showToast("يرجى إدخال اسم الزبون", "error")
             return
         }
@@ -212,8 +212,8 @@ export default function CustomersPage() {
                         <Label htmlFor="name">اسم الزبون *</Label>
                         <Input
                             id="name"
-                            value={formData.name}
-                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            value={formData.full_name}
+                            onChange={(e) => setFormData({ ...formData, full_name: e.target.value })}
                             placeholder="الاسم الكامل"
                         />
                     </div>

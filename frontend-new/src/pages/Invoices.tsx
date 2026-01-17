@@ -344,18 +344,24 @@ export default function InvoicesPage() {
         if (!validateForm()) return
 
         try {
+
+            
             const invoiceData = {
-                customerId: formData.isWalkIn ? null : Number(formData.customerId),
+                customer_id: Number(formData.customerId),
                 isWalkIn: formData.isWalkIn,
-                currency: formData.currency,
+               
                 initialPayment: Number(formData.initialPayment) || 0,
-                items: formData.items.map(item => ({
-                    feedId: Number(item.feedId),
+                invoice_lines: formData.items.map(item => ({
+                    feed_id: Number(item.feedId),
                     quantity_kg: Number(item.quantity),
                     price_type: formData.invoiceType,
-                    unit_price: item.unitPrice
+                    unit_price: item.unitPrice,
+                     currency: formData.currency,
                 }))
+
+
             }
+            console.log(invoiceData)
 
             if (isEditing && editInvoiceId) {
                 await invoicesApi.updateInvoice(editInvoiceId, invoiceData)
@@ -452,15 +458,6 @@ export default function InvoicesPage() {
             key: "customer_name",
             header: "الزبون",
             render: (item: Invoice) => item.is_walk_in ? "زبون آخر" : item.customer_name || "غير محدد"
-        },
-        {
-            key: "total_amount",
-            header: "الإجمالي",
-            render: (item: Invoice) => (
-                <span className="font-bold">
-                    {item.total_amount?.toLocaleString() || 0} {item.currency}
-                </span>
-            )
         },
         {
             key: "status",
@@ -592,18 +589,18 @@ export default function InvoicesPage() {
                                 />
                                 <span>زبون مسجل</span>
                             </label>
-                            <label className="flex items-center gap-2 cursor-pointer">
+                            {/* <label className="flex items-center gap-2 cursor-pointer">
                                 <input
                                     type="radio"
                                     checked={formData.isWalkIn}
                                     onChange={() => {
                                         const total = calculateTotal()
-                                        setFormData({ ...formData, isWalkIn: true, customerId: "", initialPayment: total.toString() })
+                                        setFormData({ ...formData, isWalkIn: true, customerId: "1", initialPayment: total.toString() })
                                     }}
                                     className="w-4 h-4"
                                 />
                                 <span>زبون آخر (دفع كامل)</span>
-                            </label>
+                            </label> */}
                         </div>
                     </div>
 

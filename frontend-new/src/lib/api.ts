@@ -183,7 +183,7 @@ export const customersApi = {
         // Backend returns: {success, data: {customers, pagination}}
         return response.data.customers || []
     },
-    addCustomer: async (customer: { name: string; phone: string }) => {
+    addCustomer: async (customer: { full_name: string; phone: string }) => {
         const response = await fetchApi<any>("/customers", {
             method: "POST",
             body: JSON.stringify(customer)
