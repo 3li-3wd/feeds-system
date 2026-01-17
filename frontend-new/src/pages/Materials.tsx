@@ -23,6 +23,7 @@ interface Item {
     name: string
     quantity: number
     unit: string
+
     minStock: number
     prices?: FeedPrice[]
 }
@@ -70,7 +71,9 @@ export default function MaterialsPage() {
                     }
                 })
             )
+            console.log(feedsWithPrices)
             setMaterials(feedsWithPrices)
+
         } finally {
             setIsLoading(false)
         }
@@ -96,10 +99,10 @@ export default function MaterialsPage() {
             name: item.name,
             minStock: item.minStock.toString(),
             unit: item.unit,
-            retail_syp: (item.prices?.find(p => p.price_type === 'retail' && p.currency === 'SYP')?.price_per_kg || 0).toString(),
-            wholesale_syp: (item.prices?.find(p => p.price_type === 'wholesale' && p.currency === 'SYP')?.price_per_kg || 0).toString(),
-            retail_usd: (item.prices?.find(p => p.price_type === 'retail' && p.currency === 'USD')?.price_per_kg || 0).toString(),
-            wholesale_usd: (item.prices?.find(p => p.price_type === 'wholesale' && p.currency === 'USD')?.price_per_kg || 0).toString(),
+            retail_syp: (item.prices?.find(p => p.price_type?.toLowerCase() === 'retail' && p.currency?.toUpperCase() === 'SYP')?.price_per_kg || 0).toString(),
+            wholesale_syp: (item.prices?.find(p => p.price_type?.toLowerCase() === 'wholesale' && p.currency?.toUpperCase() === 'SYP')?.price_per_kg || 0).toString(),
+            retail_usd: (item.prices?.find(p => p.price_type?.toLowerCase() === 'retail' && p.currency?.toUpperCase() === 'USD')?.price_per_kg || 0).toString(),
+            wholesale_usd: (item.prices?.find(p => p.price_type?.toLowerCase() === 'wholesale' && p.currency?.toUpperCase() === 'USD')?.price_per_kg || 0).toString(),
         })
         setIsModalOpen(true)
     }
@@ -168,8 +171,9 @@ export default function MaterialsPage() {
             key: "prices",
             header: "الأسعار (ل.س)",
             render: (item: Item) => {
-                const retail = item.prices?.find(p => p.price_type === 'retail' && p.currency === 'SYP')?.price_per_kg || 0
-                const wholesale = item.prices?.find(p => p.price_type === 'wholesale' && p.currency === 'SYP')?.price_per_kg || 0
+                console.log('the item', item);
+                const retail = item.prices?.find(p => p.price_type?.toLowerCase() === 'retail' && p.currency?.toUpperCase() === 'SYP')?.price_per_kg || 0
+                const wholesale = item.prices?.find(p => p.price_type?.toLowerCase() === 'wholesale' && p.currency?.toUpperCase() === 'SYP')?.price_per_kg || 0
                 return (
                     <div className="text-sm">
                         <div>مفرق: {retail.toLocaleString()}</div>

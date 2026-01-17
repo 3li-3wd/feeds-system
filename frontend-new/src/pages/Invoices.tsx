@@ -230,7 +230,8 @@ export default function InvoicesPage() {
             const feed = feeds.find(f => f.id === Number(value))
             if (feed) {
                 const price = feed.prices?.find(
-                    p => p.price_type === formData.invoiceType && p.currency === formData.currency
+                    p => p.price_type?.toLowerCase() === formData.invoiceType.toLowerCase() &&
+                        p.currency?.toUpperCase() === formData.currency.toUpperCase()
                 )
                 newItems[index].unitPrice = price?.price_per_kg || 0
                 newItems[index].feedName = feed.name
@@ -247,7 +248,8 @@ export default function InvoicesPage() {
                 const feed = feeds.find(f => f.id === Number(item.feedId))
                 if (feed) {
                     const price = feed.prices?.find(
-                        p => p.price_type === type && p.currency === formData.currency
+                        p => p.price_type?.toLowerCase() === type.toLowerCase() &&
+                            p.currency?.toUpperCase() === formData.currency.toUpperCase()
                     )
                     return { ...item, unitPrice: price?.price_per_kg || 0 }
                 }
@@ -263,7 +265,8 @@ export default function InvoicesPage() {
                 const feed = feeds.find(f => f.id === Number(item.feedId))
                 if (feed) {
                     const price = feed.prices?.find(
-                        p => p.price_type === formData.invoiceType && p.currency === currency
+                        p => p.price_type?.toLowerCase() === formData.invoiceType.toLowerCase() &&
+                            p.currency?.toUpperCase() === currency.toUpperCase()
                     )
                     return { ...item, unitPrice: price?.price_per_kg || 0 }
                 }
